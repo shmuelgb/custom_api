@@ -1,0 +1,121 @@
+**Features:**
+Users:
+- login/logout
+
+Resource:
+- CREATE: new resource
+- define data types
+- get fake data
+- READ: GET data
+- UPDATE: with PUT for the hole item, or PATCH for certain fields.
+- DELETE: as implies.
+
+OPTIONAL:
+- share your collection with other accounts.
+- have the option to edit userInfo, and to delete the hole account
+- limit data storage for free users, and setup an option for paying users to have their own clusters.
+
+
+**Mongo:**
+SCHEMA:
+- custom api{
+    users{
+        _id: objectID(),
+        name,
+        email,
+        password: *hash*,
+        tokens: [...tokens],
+        collections: {
+            collection-name: collection reference
+        }
+    }
+}
+- collections: {
+    collection-name:{
+        _id: objectID(),
+        {user define schema}
+    }
+}
+
+UTILS:
+- addUser({...userInfo})
+- login(email, password)
+- logout(userId)
+- addCollection(userID, collectionName, schema)
+- getALLCollections(userID)
+- getCollection(userID, collectionName)
+- updateCollection(userID, collectionName, itemID, {...update})
+- deleteCollection(userID, collectionName)
+- deleteItem(userID, collectionName, itemID)
+
+**Routes:**
+POST:
+- '/api/signin',{
+    userInfo
+    SEND: token
+    DO: addUser()
+}
+- 'api/login',{
+    email,
+    password
+    SEND: token
+    DO: login()
+}
+- 'api/logout',{
+    auth
+    DO: logout()
+}
+- 'api/me/createCollection', {
+    auth,
+    newCollection: {
+        collectionName,
+        schema[
+            {
+            fieldName,
+            value: {faker: boolean, type}
+            }
+        ]
+    }
+    SEND: newCollection
+    DO: addCollection()
+}
+
+GET:
+- 'api/me/collections', {
+    auth,
+    SEND: all user's collections
+    DO: getALLCollections()
+}
+- 'api/me/collections/:collectionName', {
+    auth,
+    SEND: collectionName
+    DO: getCollection()
+}
+
+PUT:
+- 'api/me/collections/:collectionName/:itemID', {
+    auth,
+    holeItem
+    SEND: holeItem
+    DO: updateCollection()
+}
+
+PATCH:
+- 'api/me/collections/:collectionName/:itemID', {
+    auth,
+    field: field new value
+    SEND: holeItem
+    DO: updateCollection()
+}
+
+DELETE:
+- 'api/me/collections/:collectionName/:itemID', {
+    auth,
+    SEND: holeItem
+    DO: deleteItem()
+}
+- 'api/me/collections/:collectionName', {
+    auth,
+    SEND: collectionName deleted
+    DO: deleteCollection()
+}
