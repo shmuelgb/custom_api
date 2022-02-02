@@ -14,7 +14,7 @@ OPTIONAL:
 - share your collection with other accounts.
 - have the option to edit userInfo, and to delete the hole account
 - limit data storage for free users, and setup an option for paying users to have their own clusters.
-
+- offer the same service only as an api by network requests, not only via website ui.
 
 **Mongo:**
 SCHEMA:
@@ -33,6 +33,7 @@ SCHEMA:
 - collections: {
     collection-name:{
         _id: objectID(),
+        owners: [userID]
         {user define schema}
     }
 }
