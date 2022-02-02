@@ -11,30 +11,15 @@ const collectionSchema = new mongoose.Schema(
       {
         userId: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: "User",
+          ref: "Users",
           required: true,
         },
       },
     ],
-    userCollection: {
-      type: mongoose.Schema.Types.Mixed,
-      required: true,
-    },
   },
   { strict: false }
 );
 
-const Collection = mongoose.model("Collections", collectionSchema);
+const AllCollections = mongoose.model("Collections", collectionSchema);
 
-const myCollection = new Collection({
-  name: "myCollection",
-  owners: [{ userId: new mongoose.Types.ObjectId() }],
-  userCollection: {
-    someData: "someData",
-    someOtherData: "someOtherData",
-  },
-});
-
-myCollection.save();
-
-module.exports = Collection;
+module.exports = AllCollections;

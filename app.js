@@ -17,17 +17,17 @@ const {
   allCollections,
 } = require("./mongo/models/createCollection");
 // console.log(allCollections);
-createCollection(
-  { price: { type: Number } },
-  "Shoes",
-  "5e9e8f8f8f8f8f8f8f8f8f8"
-);
-allCollections.Shoes.find({}).then((data) => console.log(data));
-console.log("!", mongoose.modelNames());
-console.log("!!!", allCollections);
-// const myshoe = new allCollections.Shoes({ price: 100 });
+// createCollection([{ price: "number" }], "Shoes", "5e9e8f8f8f8f8f8f8f8f8f8");
+// allCollections.Shoes.find({}).then((data) => console.log(data));
+// console.log("!", mongoose.modelNames());
+// console.log("!!!", allCollections);
+// const myshoe = new allCollections.Shoes({ price: "svds" });
 // myshoe.save().then(() => console.log("saved"));
-allCollections["Shoes"].find({});
+// allCollections["Shoes"].find({}).then((data) => console.log(data));
+mongoose
+  .model("shoes")
+  .find({})
+  .then((data) => console.log(data));
 //!=============================>
 
 const PORT = process.env.PORT || 3001;
