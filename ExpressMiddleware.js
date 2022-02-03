@@ -1,16 +1,15 @@
 const jwt = require("jsonwebtoken");
 const User = require("./mongo/models/users");
-const 
 
-const secret = process.env.JWT_SECRET || "thisismysecretkey";
-
+// Authenticate user
 const auth = async (req, res, next) => {
   console.log("auth");
+  const secret = process.env.JWT_SECRET;
   try {
     const token = req.header("Authorization").replace("Bearer ", "");
     const decoded = jwt.verify(token, secret);
     const user = await User.findOne({
-      user_id: decoded.user_id,
+      _id: decoded._id,
       "tokens.token": token,
     });
 

@@ -13,6 +13,7 @@ const addUser = async (req, res) => {
     const createdUser = await newUser.save();
     res.send({ createdUser, token });
   } catch (e) {
+    console.log(e);
     res.status(400).send(e.message);
   }
 };
@@ -27,8 +28,23 @@ const login = async (req, res) => {
     const token = await user.generateAuthToken();
     res.send({ user, token });
   } catch (e) {
+    console.log(e);
     res.status(400).send(e.message);
   }
 };
 
-module.exports = { addUser, login };
+const logout = async (req, res) => {
+  console.log("logout");
+  try {
+    req.user.tokens = req.user.tokens.filter(
+      (token) => token.token !== req.token
+    );
+    await req.user.save();
+    res.send("logout success");
+  } catch (e) {
+    console.log(e);
+    res.status(400).send(e.message);
+  }
+};
+
+module.exports = { addUser, login, logout };

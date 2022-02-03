@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const User = require("./users");
 
 const collectionSchema = new mongoose.Schema(
   {
@@ -6,6 +7,9 @@ const collectionSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
+    },
+    userSchema: {
+      type: mongoose.Schema.Types.Mixed,
     },
     owners: [
       {
@@ -19,6 +23,21 @@ const collectionSchema = new mongoose.Schema(
   },
   { strict: false }
 );
+
+collectionSchema.pre("save", async function (next) {
+  if (this.isModified("owners")) {
+    this.owners.forEach(async (owner) => {
+      const user = await User.findById(owner.userId);
+      user.collections.push({
+        name: this.name,
+        reference: this._id,
+      });
+      user.save();
+      console.log("collectionSchema.pre", user);
+    });
+  }
+  next();
+});
 
 const AllCollections = mongoose.model("Collections", collectionSchema);
 

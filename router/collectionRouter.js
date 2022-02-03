@@ -1,14 +1,10 @@
 const express = require("express");
 const router = new express.Router();
-const userUtils = require("../utils/usersUtils");
+const collectionUtils = require("../utils/collectionsUtils");
 const auth = require("../ExpressMiddleware");
 
 router.get("/test", (req, res) => res.send("working"));
 
-router.post("/signIn", userUtils.addUser);
-
-router.post("/login", userUtils.login);
-
-router.post("/logout", auth, userUtils.logout);
+router.post("/createCollection", auth, collectionUtils.createNewUserCollection);
 
 module.exports = router;
