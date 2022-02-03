@@ -3,19 +3,16 @@ const path = require("path");
 const cors = require("cors");
 const usersRoute = require("./router/usersRoute");
 const mongoose = require("mongoose");
-const clusterAccess = require("./mongo/clusterAccess");
+require("dotenv").config();
 //
-const connectionUri = process.env.MONGO_URI || clusterAccess;
+const connectionUri = process.env.MONGO_URI;
 
-mongoose.connect(connectionUri, {
-  useNewUrlParser: true,
-});
-
+mongoose.connect(connectionUri);
 //!=============================>
 const {
   createCollection,
   allCollections,
-} = require("./mongo/models/createCollection");
+} = require("./mongo/mongoUtils/createCollection");
 // console.log(allCollections);
 // createCollection([{ price: "number" }], "Shoes", "5e9e8f8f8f8f8f8f8f8f8f8");
 // allCollections.Shoes.find({}).then((data) => console.log(data));
@@ -24,10 +21,10 @@ const {
 // const myshoe = new allCollections.Shoes({ price: "svds" });
 // myshoe.save().then(() => console.log("saved"));
 // allCollections["Shoes"].find({}).then((data) => console.log(data));
-mongoose
-  .model("shoes")
-  .find({})
-  .then((data) => console.log(data));
+// mongoose
+//   .model("shoes")
+//   .find({})
+//   .then((data) => console.log(data));
 //!=============================>
 
 const PORT = process.env.PORT || 3001;

@@ -1,3 +1,4 @@
 node_modules
 clusterAccess.js
 jwtSecret.js
+.env

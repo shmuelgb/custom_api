@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
-const jwtSecret = require("../../authorization/jwtSecret");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
-const secret = process.env.JWT_SECRET || jwtSecret;
+const secret = process.env.JWT_SECRET;
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -23,35 +24,44 @@ const userSchema = new mongoose.Schema({
     {
       token: {
         type: String,
-        required: true,
+      },
+    },
+  ],
+  collections: [
+    {
+      name: {
+        type: String,
+      },
+      userSchema: {
+        type: mongoose.Schema.Types.Mixed,
       },
     },
   ],
 });
 
-// userSchema.methods.generateAuthToken = async function () {
-//   const token = jwt.sign({ user_id: this.user_id }, secret);
-//   this.tokens = this.tokens.concat({ token });
-//   await this.save();
-//   return token;
-// };
+userSchema.methods.generateAuthToken = async function () {
+  const token = jwt.sign({ _id: this._id }, secret);
+  this.tokens = this.tokens.concat({ token });
+  await this.save();
+  return token;
+};
 
-// userSchema.statics.findByCredentials = async (user_id, password) => {
-//   const user = await User.findOne({ user_id });
-//   if (!user) {
-//     throw new Error("Unable to login");
-//   }
-//   const isMatch = await bcrypt.compare(password, user.password);
-//   if (!isMatch) throw new Error("Unable to login");
-//   return user;
-// };
+userSchema.statics.findByCredentials = async (email, password) => {
+  const user = await User.findOne({ email });
+  if (!user) {
+    throw new Error("Unable to login");
+  }
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) throw new Error("Unable to login");
+  return user;
+};
 
-// userSchema.pre("save", async function (next) {
-//   if (this.isModified("password")) {
-//     this.password = await bcrypt.hash(this.password, 8);
-//   }
-//   next();
-// });
+userSchema.pre("save", async function (next) {
+  if (this.isModified("password")) {
+    this.password = await bcrypt.hash(this.password, 8);
+  }
+  next();
+});
 
 const User = mongoose.model("Users", userSchema);
 module.exports = User;

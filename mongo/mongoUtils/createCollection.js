@@ -17,29 +17,3 @@ async function createCollection(userSchema, collectionName, userId) {
   console.log(allCollections);
 }
 module.exports = { allCollections, createCollection };
-
-// const collectionSchema = new mongoose.Schema(
-//   {
-//     name: {
-//       type: String,
-//       required: true,
-//       unique: true,
-//     },
-//     owners: [
-//       {
-//         userId: {
-//           type: mongoose.Schema.Types.ObjectId,
-//           ref: "User",
-//           required: true,
-//         },
-//       },
-//     ],
-//     userCollection: {
-//       type: mongoose.Schema.Types.Mixed,
-//       required: true,
-//     },
-//   },
-//   { strict: false }
-// );
-
-// const Collection = mongoose.model("Collections", collectionSchema);
