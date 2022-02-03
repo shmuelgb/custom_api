@@ -33,7 +33,6 @@ collectionSchema.pre("save", async function (next) {
         reference: this._id,
       });
       user.save();
-      console.log("collectionSchema.pre", user);
     });
   }
   next();

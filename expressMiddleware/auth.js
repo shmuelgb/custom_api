@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const User = require("./mongo/models/users");
+const User = require("../mongo/models/users");
 
 // Authenticate user
 const auth = async (req, res, next) => {
@@ -14,8 +14,6 @@ const auth = async (req, res, next) => {
     });
 
     if (!user) throw new Error("Unable to login");
-
-    console.log("decoded", decoded);
     req.user = user;
     req.token = token;
     next();
@@ -23,4 +21,5 @@ const auth = async (req, res, next) => {
     res.status(400).send(e.message);
   }
 };
+
 module.exports = auth;

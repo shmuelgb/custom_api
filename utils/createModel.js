@@ -5,9 +5,7 @@ const allCollections = {};
 
 // Dynamically create a new user collection
 const createNewCollection = async (docFields, collectionName, userId) => {
-  let name = collectionName.toLowerCase();
-  name = name[0].toUpperCase() + name.slice(1);
-  name = `${userId}_${name}`;
+  const name = computeCollectionName(userId, collectionName);
   const newSchema = createSchema(docFields);
   const model = createModel(name, newSchema);
   const collectionDoc = {
@@ -21,15 +19,14 @@ const createNewCollection = async (docFields, collectionName, userId) => {
 
 // Initialize Mongoose.model instance, in order to interact with the database
 const initializeModel = async (userId, collectionName) => {
-  const collectionInfo = await UsersCollections.findOne({
-    name: collectionName,
-  });
+  const name = computeCollectionName(userId, collectionName);
+  const collectionInfo = await UsersCollections.findOne({ name: name });
   if (!collectionInfo) {
     throw new Error("Collection not found");
   }
-  const newSchema = createSchema(collectionInfo.fields);
+  const newSchema = createSchema(collectionInfo.userSchema);
   const model = createModel(collectionInfo.name, newSchema);
-  return model;
+  return { model, collectionInfo };
 };
 
 // Helper function to create a mongoose schema from an array of field names and types
@@ -46,6 +43,13 @@ const createModel = (collectionName, newSchema) => {
   const strToEval1 = `new mongoose.model('${collectionName}', newSchema);`;
   allCollections[collectionName] = eval(strToEval1);
   return allCollections[collectionName];
+};
+
+const computeCollectionName = (userId, collectionName) => {
+  let name = collectionName.toLowerCase();
+  name = name[0].toUpperCase() + name.slice(1);
+  name = `${userId}_${name}`;
+  return name;
 };
 
 module.exports = { initializeModel, createNewCollection, allCollections };
