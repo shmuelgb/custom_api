@@ -31,7 +31,7 @@ const initializeModel = async (userId, collectionName) => {
 
 // Helper function to create a mongoose schema from an array of field names and types
 const createSchema = (docFields) => {
-  const newSchema = new mongoose.Schema({});
+  const newSchema = new mongoose.Schema({}, { collection: "data" });
   docFields.forEach((field) => {
     newSchema.add(field);
   });
@@ -40,8 +40,10 @@ const createSchema = (docFields) => {
 
 // Helper function to create a mongoose model from a schema
 const createModel = (collectionName, newSchema) => {
-  const strToEval1 = `new mongoose.model('${collectionName}', newSchema);`;
-  allCollections[collectionName] = eval(strToEval1);
+  if (!allCollections[collectionName]) {
+    const strToEval1 = `new mongoose.model('${collectionName}', newSchema);`;
+    allCollections[collectionName] = eval(strToEval1);
+  }
   return allCollections[collectionName];
 };
 

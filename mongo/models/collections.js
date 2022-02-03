@@ -24,6 +24,7 @@ const collectionSchema = new mongoose.Schema(
   { strict: false }
 );
 
+// Update owner user to include collection
 collectionSchema.pre("save", async function (next) {
   if (this.isModified("owners")) {
     this.owners.forEach(async (owner) => {

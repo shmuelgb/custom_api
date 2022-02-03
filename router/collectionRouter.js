@@ -4,10 +4,9 @@ const collectionUtils = require("../utils/collectionsUtils");
 const auth = require("../expressMiddleware/auth");
 const prepareCollection = require("../expressMiddleware/prepareCollection");
 
-router.get("/test", (req, res) => res.send("working"));
-
 router.post("/createCollection", auth, collectionUtils.createNewUserCollection);
 
+// Create new document
 router.post(
   "/:collectionName/add",
   auth,
@@ -15,11 +14,47 @@ router.post(
   collectionUtils.createNewDocument
 );
 
+// Update a hole document
 router.put(
   "/:collectionName/updateHole/:docId",
   auth,
   prepareCollection,
-  collectionUtils.updateHoleDoc
+  collectionUtils.updateDoc
+);
+
+// Update document partially
+router.patch(
+  "/:collectionName/update/:docId",
+  auth,
+  prepareCollection,
+  collectionUtils.updateDoc
+);
+
+// delete document
+router.delete(
+  "/:collectionName/:docId",
+  auth,
+  prepareCollection,
+  collectionUtils.deleteDoc
+);
+
+// delete collection
+router.delete(
+  "/:collectionName",
+  auth,
+  prepareCollection,
+  collectionUtils.dropCollection
+);
+
+// Get all collections
+router.get("/", auth, collectionUtils.getAllCollections);
+
+// Get a collection
+router.get(
+  "/:collectionName",
+  auth,
+  prepareCollection,
+  collectionUtils.getCollection
 );
 
 module.exports = router;
