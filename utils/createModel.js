@@ -31,7 +31,7 @@ const initializeModel = async (userId, collectionName) => {
 
 // Helper function to create a mongoose schema from an array of field names and types
 const createSchema = (docFields) => {
-  const newSchema = new mongoose.Schema({}, { collection: "data" });
+  const newSchema = new mongoose.Schema({});
   docFields.forEach((field) => {
     newSchema.add(field);
   });

@@ -99,6 +99,9 @@ const getCollection = async (req, res) => {
   }
 };
 
+//TODO: ability to create many documents with faker
+//TODO ability to update Schema
+
 module.exports = {
   createNewUserCollection,
   createNewDocument,
