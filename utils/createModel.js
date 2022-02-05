@@ -54,4 +54,10 @@ const computeCollectionName = (userId, collectionName) => {
   return name;
 };
 
-module.exports = { initializeModel, createNewCollection, allCollections };
+module.exports = {
+  computeCollectionName,
+  initializeModel,
+  createNewCollection,
+  initializeModel,
+  allCollections,
+};

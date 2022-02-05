@@ -90,9 +90,41 @@ const getAllCollections = async (req, res) => {
 
 const getCollection = async (req, res) => {
   try {
-    const { model } = req;
+    const { model, collectionInfo } = req;
     const collection = await model.find({});
-    res.send(collection);
+    res.send({ collection, collectionInfo });
+  } catch (e) {
+    console.log(e);
+    res.status(400).send(e.message);
+  }
+};
+
+const getDocument = async (req, res) => {
+  try {
+    const { model } = req;
+    const document = await model.findById(req.params.docId);
+    res.send(document);
+  } catch (e) {
+    console.log(e);
+    res.status(400).send(e.message);
+  }
+};
+
+const updateSchema = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const collectionName = req.params.collectionName;
+    const fields = req.body.schema;
+    const name = createModel.computeCollectionName(userId, collectionName);
+    await UserCollection.findOneAndUpdate(
+      { name: name },
+      { userSchema: fields }
+    );
+    const { collectionInfo } = await createModel.initializeModel(
+      userId,
+      collectionName
+    );
+    res.send(collectionInfo);
   } catch (e) {
     console.log(e);
     res.status(400).send(e.message);
@@ -100,7 +132,6 @@ const getCollection = async (req, res) => {
 };
 
 //TODO: ability to create many documents with faker
-//TODO ability to update Schema
 
 module.exports = {
   createNewUserCollection,
@@ -110,4 +141,6 @@ module.exports = {
   dropCollection,
   getAllCollections,
   getCollection,
+  getDocument,
+  updateSchema,
 };

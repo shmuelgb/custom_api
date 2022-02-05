@@ -57,4 +57,15 @@ router.get(
   collectionUtils.getCollection
 );
 
+// Get a document
+router.get(
+  "/:collectionName/:docId",
+  auth,
+  prepareCollection,
+  collectionUtils.getDocument
+);
+
+// Update schema
+router.patch("/:collectionName/schema", auth, collectionUtils.updateSchema);
+
 module.exports = router;
