@@ -49,7 +49,7 @@ const createModel = (collectionName, newSchema) => {
 
 const computeCollectionName = (userId, collectionName) => {
   let name = collectionName.toLowerCase();
-  name = name.replace(/[^a-zA-Z_]/g, "");
+  name = name.replace(/[^a-zA-Z0-9_]/g, "");
   name = name[0].toUpperCase() + name.slice(1);
   name = `${userId}_${name}`;
   return name;
