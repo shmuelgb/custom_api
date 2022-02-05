@@ -41,7 +41,7 @@ const createSchema = (docFields) => {
 // Helper function to create a mongoose model from a schema
 const createModel = (collectionName, newSchema) => {
   if (!allCollections[collectionName]) {
-    const strToEval1 = `new mongoose.model('${collectionName}', newSchema);`;
+    const strToEval1 = `new mongoose.model('${collectionName}', newSchema, '${collectionName}');`;
     allCollections[collectionName] = eval(strToEval1);
   }
   return allCollections[collectionName];
@@ -49,6 +49,7 @@ const createModel = (collectionName, newSchema) => {
 
 const computeCollectionName = (userId, collectionName) => {
   let name = collectionName.toLowerCase();
+  name = name.replace(/[^a-zA-Z_]/g, "");
   name = name[0].toUpperCase() + name.slice(1);
   name = `${userId}_${name}`;
   return name;
