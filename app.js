@@ -24,6 +24,10 @@ app.use("/api/collections", collectionRouter);
 const publicDirectoryPath = path.join(__dirname, "client/build");
 app.use(express.static(publicDirectoryPath));
 
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(publicDirectoryPath, "index.html"));
+});
+
 // Get server up and running
 app.listen(PORT, () => {
   console.log(`Server up on port ${PORT}`);
