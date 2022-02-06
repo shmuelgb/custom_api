@@ -1,0 +1,38 @@
+Components:
+
+- Nav{
+    logo
+    login/logout
+    userInfo
+    dashboard
+    about
+
+}
+
+- Home{
+    logo
+    login
+    dashboard
+}
+
+- login{
+    email
+    password
+}
+
+- signIn{
+    name
+    email
+    password
+    confirm
+}
+
+- About{
+    ***
+}
+
+- Dashboard{
+    
+}
+
+- userInfo{}

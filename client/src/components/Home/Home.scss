@@ -1,0 +1,32 @@
+.Home {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url(./images/home_background2.jpg) no-repeat top center/cover;
+  .logo-container {
+    width: 45%;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($color: white, $alpha: 0.6);
+    img {
+      width: 50%;
+      height: auto;
+      margin-bottom: 80px;
+    }
+  }
+  .text-container {
+    height: 100%;
+    width: 55%;
+    padding: 0 15px;
+    color: #fff;
+    font-size: 1.5rem;
+    background-color: rgba($color: rgb(0, 0, 0), $alpha: 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
