@@ -5,6 +5,8 @@ const auth = require("../expressMiddleware/auth");
 
 router.get("/test", (req, res) => res.send("working"));
 
+router.get("/checkToken", auth, (req, res) => res.send(true));
+
 router.post("/signIn", userUtils.addUser);
 
 router.post("/login", userUtils.login);

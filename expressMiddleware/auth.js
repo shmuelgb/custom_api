@@ -12,13 +12,13 @@ const auth = async (req, res, next) => {
       _id: decoded._id,
       "tokens.token": token,
     });
-    if (!user) throw new Error("Unable to login");
+    if (!user) throw new Error();
     req.user = user;
     req.token = token;
     next();
   } catch (e) {
     console.log(e);
-    res.status(400).send("Unable to login");
+    res.status(400).send({ message: "Unable to login" });
   }
 };
 

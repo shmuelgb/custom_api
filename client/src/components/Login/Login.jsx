@@ -1,13 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { useTokenPro } from "../../providers/SessionProvider";
 import Background from "../Background/Background";
-import { Link } from "react-router-dom";
+import caServer from "../../api/ca_server";
+import { Link, useHistory } from "react-router-dom";
 import "./Login.css";
 
 export default function Login() {
-  const [setToken] = useTokenPro();
+  const [token, setToken] = useTokenPro();
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleLogin = async () => {
+    try {
+      const { data } = await caServer.post("/login", {
+        email,
+        password,
+      });
+      setToken(data);
+      localStorage.setItem("token", data.token);
+      history.push("/dashboard");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    if (token) history.push("/dashboard");
+  }, [token, history]);
+
   return (
     <div className="Login">
       <Background />
@@ -28,8 +49,9 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <button className="btn">Login</button>
-
+        <button className="btn" onClick={handleLogin}>
+          Login
+        </button>
         <div>{/* <Link to="/reset">Forgot Password</Link> */}</div>
         <div>
           Don't have an account yet?
