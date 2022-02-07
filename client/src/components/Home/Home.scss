@@ -1,3 +1,4 @@
+@import "../../styles/variables";
 .Home {
   height: 100vh;
   display: flex;
@@ -12,21 +13,42 @@
     justify-content: center;
     background-color: rgba($color: white, $alpha: 0.6);
     img {
-      width: 50%;
+      width: 60%;
       height: auto;
       margin-bottom: 80px;
     }
   }
-  .text-container {
-    height: 100%;
+  .right-side {
     width: 55%;
-    padding: 0 15px;
-    color: #fff;
-    font-size: 1.5rem;
     background-color: rgba($color: rgb(0, 0, 0), $alpha: 0.3);
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+
+    .Nav {
+      background-color: rgba($color: #000000, $alpha: 0.3);
+      height: 7vh;
+      .nav__links {
+        width: 100%;
+        justify-content: space-evenly;
+        .btn {
+          color: $color-1-white;
+          border: 0;
+        }
+      }
+      img {
+        display: none;
+      }
+    }
+
+    .text-container {
+      color: #fff;
+      height: 30vh;
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }

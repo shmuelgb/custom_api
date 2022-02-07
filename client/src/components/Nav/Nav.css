@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap");
+.Nav {
+  max-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 20px;
+}
+
+.Nav img {
+  max-height: 60px;
+}
+
+.Nav img:hover {
+  cursor: pointer;
+}
+
+.Nav .nav__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Nav .nav__links a {
+  height: 40px;
+  margin-left: 10px;
+}
+
+.Nav .nav__links .btn {
+  background-color: transparent;
+  color: #1995ad;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-left: 1px solid #1995ad;
+  border-radius: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.Nav .nav__links .btn:hover {
+  opacity: 0.7;
+}
+/*# sourceMappingURL=Nav.css.map */

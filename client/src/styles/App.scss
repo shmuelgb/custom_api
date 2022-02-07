@@ -6,5 +6,48 @@
 }
 .App {
   text-align: center;
-  font-family: $font-Montserrat;
+  font-family: $font-Mulish;
+  font-size: 18px;
+  color: $color-4-blue;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid $color-4-blue;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  transition: all 0.1s ease-in-out;
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid $color-4-blue;
+  }
+  &:active {
+    border-bottom: 1px solid $color-4-blue;
+  }
+}
+
+.btn {
+  background-color: $color-4-blue;
+  color: $color-1-white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    background-color: $color-3-ice;
+    color: $color-1-white;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $color-4-blue;
+  a:hover {
+    color: $color-3-ice;
+  }
 }

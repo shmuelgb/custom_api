@@ -3,19 +3,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap");
-
-$font-Montserrat: "Montserrat", "sans-serif";
-$font-Roboto: "Roboto Mono", monospace;
-$font-Inconsolata: "Inconsolata", monospace;
-$font-Source-Code: "Source Code Pro", monospace;
-$font-Mulish: "Mulish", sans-serif;
-
-$color-1-white: #f1f1f2;
-$color-2-gray: #bcbabe;
-$color-3-ice: #a1d6e2;
-$color-4-blue: #1995ad;
-
-$color-11-slate: #626d71;
-$color-12-ceramic: #cdcdc0;
-$color-13-latte: #ddbc95;
-$color-14-coffee: #b38867;
+.Header {
+  width: 100%;
+  position: fixed;
+  height: 8vh;
+  background-color: rgba(98, 109, 113, 0.4);
+  z-index: 10;
+}
+/*# sourceMappingURL=Header.css.map */

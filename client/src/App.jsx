@@ -2,6 +2,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./styles/App.css";
 import SessionProvider from "./providers/SessionProvider";
 import Home from "./components/Home/Home";
+import Header from "./components/Header/Header";
+import Login from "./components/Login/Login";
+import Dashboard from "./components/Dashboard/Dashboard";
+import About from "./components/About/About";
+import Register from "./components/Register/Register";
 
 function App() {
   return (
@@ -11,6 +16,11 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
           </Switch>
+          <Header />
+          <Route path="/login" exact component={Login} />
+          <Route path="/register" exact component={Register} />
+          <Route path="/about" exact component={About} />
+          <Route path="/dashboard" exact component={Dashboard} />
         </Router>
       </SessionProvider>
     </div>

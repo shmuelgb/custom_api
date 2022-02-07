@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -11,6 +12,57 @@
 
 .App {
   text-align: center;
-  font-family: "Montserrat", "sans-serif";
+  font-family: "Mulish", sans-serif;
+  font-size: 18px;
+  color: #1995ad;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #1995ad;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 1px solid #1995ad;
+}
+
+input:active {
+  border-bottom: 1px solid #1995ad;
+}
+
+.btn {
+  background-color: #1995ad;
+  color: #f1f1f2;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #a1d6e2;
+  color: #f1f1f2;
+}
+
+.btn:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+a {
+  text-decoration: none;
+  color: #1995ad;
+}
+
+a a:hover {
+  color: #a1d6e2;
 }
 /*# sourceMappingURL=App.css.map */
