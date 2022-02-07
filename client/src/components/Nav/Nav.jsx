@@ -1,13 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useTokenPro } from "../../providers/SessionProvider";
 import logo from "../../assets/CA_logo_figure.png";
 import { Link, useHistory } from "react-router-dom";
+import caServer from "../../api/ca_server";
 import "./Nav.css";
 
 export default function Nav() {
+  const [token, setToken] = useTokenPro();
   const history = useHistory();
+
   const navigateToHomepage = () => {
     history.push("/");
   };
+
+  const handleLogout = async () => {
+    try {
+      const { data } = await caServer.post("/logout");
+      if (data) {
+        setToken("");
+        localStorage.removeItem("token");
+        history.push("/");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    const existingToken = localStorage.getItem("token");
+    if (existingToken) setToken(existingToken);
+    if (token) console.log("token");
+  });
+
   return (
     <div className="Nav">
       <img onClick={navigateToHomepage} src={logo} alt="logo" />
@@ -21,9 +45,16 @@ export default function Nav() {
         <Link className="btn" to="/dashboard">
           My API
         </Link>
-        <Link className="btn" to="/login">
-          Login
-        </Link>
+        {!token && (
+          <Link className="btn" to="/login">
+            Login
+          </Link>
+        )}
+        {token && (
+          <button onClick={handleLogout} className="btn">
+            Logout
+          </button>
+        )}
       </div>
     </div>
   );
