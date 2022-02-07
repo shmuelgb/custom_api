@@ -1,5 +1,10 @@
 import React from "react";
+import Background from "../Background/Background";
 
 export default function Dashboard() {
-  return <div>Dashboard</div>;
+  return (
+    <div>
+      <Background />
+    </div>
+  );
 }

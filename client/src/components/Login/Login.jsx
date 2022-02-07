@@ -10,6 +10,7 @@ export default function Login() {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleLogin = async () => {
     try {
@@ -22,6 +23,7 @@ export default function Login() {
       history.push("/dashboard");
     } catch (err) {
       console.log(err);
+      setError(err.response.data.message);
     }
   };
 
@@ -52,6 +54,7 @@ export default function Login() {
         <button className="btn" onClick={handleLogin}>
           Login
         </button>
+        <p className="login__error">{error}</p>
         <div>{/* <Link to="/reset">Forgot Password</Link> */}</div>
         <div>
           Don't have an account yet?

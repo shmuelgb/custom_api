@@ -14,7 +14,7 @@ const addUser = async (req, res) => {
     res.send({ createdUser, token });
   } catch (e) {
     console.log(e);
-    res.status(400).send(e.message);
+    res.status(400).send({ message: e.message });
   }
 };
 
@@ -29,7 +29,7 @@ const login = async (req, res) => {
     res.send({ user, token });
   } catch (e) {
     console.log(e);
-    res.status(400).send(e.message);
+    res.status(400).send({ message: e.message });
   }
 };
 
@@ -43,7 +43,7 @@ const logout = async (req, res) => {
     res.send({ message: "Logged out" });
   } catch (e) {
     console.log(e);
-    res.status(400).send(e.message);
+    res.status(400).send({ message: e.message });
   }
 };
 

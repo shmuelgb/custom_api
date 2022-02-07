@@ -11,6 +11,7 @@ export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleRegister = async () => {
     try {
@@ -24,6 +25,7 @@ export default function Register() {
       history.push("/dashboard");
     } catch (err) {
       console.log(err);
+      setError(err.response.data.message);
     }
   };
 
@@ -61,6 +63,7 @@ export default function Register() {
         <button className="btn" onClick={handleRegister}>
           Register
         </button>
+        <p className="register__error">{error}</p>
         <div>
           Already have an account?
           <br />

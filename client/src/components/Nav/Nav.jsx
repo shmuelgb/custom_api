@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useTokenPro } from "../../providers/SessionProvider";
-import logo from "../../assets/CA_logo_figure.png";
+import logo from "../../assets/CA_logo2.png";
 import { Link, useHistory } from "react-router-dom";
 import caServer from "../../api/ca_server";
 import "./Nav.css";
