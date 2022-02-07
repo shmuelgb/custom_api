@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
-import { useTokenPro } from "../../providers/SessionProvider";
+import { useTokenPro, useIsMobilePro } from "../../providers/SessionProvider";
 import logo from "../../assets/CA_logo2.png";
 import { Link, useHistory } from "react-router-dom";
-import caServer from "../../api/ca_server";
+import caServer, { getAuthHeader } from "../../api/ca_server";
 import "./Nav.css";
 
 export default function Nav() {
   const [token, setToken] = useTokenPro();
+  const [isMobile, setIsMobile] = useIsMobilePro();
   const history = useHistory();
 
   const navigateToHomepage = () => {
@@ -15,7 +16,7 @@ export default function Nav() {
 
   const handleLogout = async () => {
     try {
-      const { data } = await caServer.post("/logout");
+      const { data } = await caServer.post("/logout", {}, getAuthHeader());
       if (data) {
         setToken("");
         localStorage.removeItem("token");
@@ -31,6 +32,11 @@ export default function Nav() {
     if (existingToken) setToken(existingToken);
     if (token) console.log("token");
   });
+  useEffect(() => {
+    if (window.innerWidth < 800) setIsMobile(true);
+    else setIsMobile(false);
+    console.log(isMobile);
+  }, [isMobile, setIsMobile]);
 
   return (
     <div className="Nav">

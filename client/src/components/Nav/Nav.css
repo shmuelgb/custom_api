@@ -11,6 +11,9 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 0 20px;
 }
 
@@ -43,11 +46,26 @@
   font-weight: bold;
   border-left: 1px solid #1995ad;
   border-radius: 0;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 .Nav .nav__links .btn:hover {
-  opacity: 0.7;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .Nav img {
+    display: none;
+  }
+  .Nav .nav__links .btn {
+    border-left: 0;
+  }
+  .nav__links .btn {
+    padding: 7px 10px;
+  }
+  .nav__links .btn:last-child {
+    padding: 7px 10px 14px 10px;
+  }
 }
 /*# sourceMappingURL=Nav.css.map */

@@ -9,5 +9,11 @@
   height: 8vh;
   background-color: rgba(98, 109, 113, 0.4);
   z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=Header.css.map */

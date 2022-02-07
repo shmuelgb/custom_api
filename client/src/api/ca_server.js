@@ -1,10 +1,16 @@
 import axios from "axios";
 
-const caServer = axios.create({
+export default axios.create({
   baseURL: "http://localhost:3001/api/",
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${localStorage.getItem("token")}`,
-  },
 });
-export default caServer;
+
+const getAuthHeader = () => {
+  const token = localStorage.getItem("token");
+  return {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+};
+
+export { getAuthHeader };

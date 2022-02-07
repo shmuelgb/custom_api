@@ -52,3 +52,35 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .Home {
+    .logo-container {
+      display: none;
+    }
+    .right-side {
+      width: 100%;
+      .text-container {
+        font-size: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: 85vh;
+        img {
+          width: 80%;
+          background-color: rgba($color: white, $alpha: 0.3);
+          padding: 15px;
+          margin-bottom: 30px;
+          border-radius: 10px;
+        }
+      }
+      .nav__links .btn {
+        padding: 7px 10px;
+      }
+      .nav__links .btn:last-child {
+        padding: 7px 10px 14px 10px;
+      }
+    }
+  }
+}

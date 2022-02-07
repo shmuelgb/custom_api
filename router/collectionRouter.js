@@ -68,4 +68,6 @@ router.get(
 // Update schema
 router.patch("/:collectionName/schema", auth, collectionUtils.updateSchema);
 
+//todo: Share collection with other user
+
 module.exports = router;

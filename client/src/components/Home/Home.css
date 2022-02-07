@@ -88,4 +88,43 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
+@media (max-width: 768px) {
+  .Home .logo-container {
+    display: none;
+  }
+  .Home .right-side {
+    width: 100%;
+  }
+  .Home .right-side .text-container {
+    font-size: 1.2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    height: 85vh;
+  }
+  .Home .right-side .text-container img {
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+  }
+  .Home .right-side .nav__links .btn {
+    padding: 7px 10px;
+  }
+  .Home .right-side .nav__links .btn:last-child {
+    padding: 7px 10px 14px 10px;
+  }
+}
 /*# sourceMappingURL=Home.css.map */
