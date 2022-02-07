@@ -1,1 +1,37 @@
-/* No CSS *//*# sourceMappingURL=Register.css.map */
+.Register {
+  height: 100vh;
+}
+
+.Register .register__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 70%;
+}
+
+.Register .register__container h1 {
+  margin-bottom: 15px;
+}
+
+.Register .register__container input {
+  margin-bottom: 20px;
+}
+
+.Register .register__container .btn {
+  margin-bottom: 20px;
+}
+
+.Register .login {
+  text-decoration: underline;
+}
+/*# sourceMappingURL=Register.css.map */

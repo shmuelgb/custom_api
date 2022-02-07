@@ -20,6 +20,18 @@
   height: 70%;
 }
 
+.Login .login__container h1 {
+  margin-bottom: 15px;
+}
+
+.Login .login__container input {
+  margin-bottom: 20px;
+}
+
+.Login .login__container .btn {
+  margin-bottom: 20px;
+}
+
 .Login .register {
   text-decoration: underline;
 }

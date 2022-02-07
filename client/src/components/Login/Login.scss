@@ -7,6 +7,15 @@
     align-items: center;
     justify-content: center;
     height: 70%;
+    h1 {
+      margin-bottom: 15px;
+    }
+    input {
+      margin-bottom: 20px;
+    }
+    .btn {
+      margin-bottom: 20px;
+    }
   }
   .register {
     text-decoration: underline;
