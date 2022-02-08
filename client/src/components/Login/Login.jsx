@@ -26,7 +26,7 @@ export default function Login() {
       history.push("/dashboard");
     } catch (err) {
       console.log(err);
-      setError(err.response.data.message);
+      if (err.response.data) setError(err.response.data.message);
     }
   };
 
