@@ -18,10 +18,17 @@ export const useUserInfoPro = () => {
   return [useContext(userInfoPro), useContext(userInfoProUpdate)];
 };
 
+const UserCollectionsPro = createContext();
+const UserCollectionsProUpdate = createContext();
+export const useUserCollectionsPro = () => {
+  return [useContext(UserCollectionsPro), useContext(UserCollectionsProUpdate)];
+};
+
 export default function SessionProvider({ children }) {
   const [token, setToken] = useState();
   const [isMobile, setIsMobile] = useState(false);
   const [userInfo, setUserInfo] = useState(localStorage.getItem("user"));
+  const [userCollections, setUserCollections] = useState();
   return (
     <tokenPro.Provider value={token}>
       <tokenProUpdate.Provider value={setToken}>
@@ -29,7 +36,11 @@ export default function SessionProvider({ children }) {
           <isMobileProUpdate.Provider value={setIsMobile}>
             <userInfoPro.Provider value={userInfo}>
               <userInfoProUpdate.Provider value={setUserInfo}>
-                {children}
+                <UserCollectionsPro.Provider value={userCollections}>
+                  <UserCollectionsProUpdate.Provider value={setUserCollections}>
+                    {children}
+                  </UserCollectionsProUpdate.Provider>
+                </UserCollectionsPro.Provider>
               </userInfoProUpdate.Provider>
             </userInfoPro.Provider>
           </isMobileProUpdate.Provider>
