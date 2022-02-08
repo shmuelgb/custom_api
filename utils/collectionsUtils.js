@@ -22,7 +22,7 @@ const createNewUserCollection = async (req, res) => {
 
 const createNewDocument = async (req, res) => {
   try {
-    const { model, body, collectionInfo } = req;
+    const { model, body, user } = req;
     const newDocument = new model(body);
     const savedDocument = await newDocument.save();
     collectionInfo.docsSum += 1;

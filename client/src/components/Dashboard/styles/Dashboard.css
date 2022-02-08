@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap");
 .Dashboard {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13,29 +18,66 @@
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
-  height: 100%;
-  padding-top: 8vh;
+  min-height: 100%;
+  padding-top: 9vh;
+}
+
+.Dashboard h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
 .Dashboard .dashboard-content {
   height: 80vh;
   width: 100%;
+  margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .Dashboard .dashboard-content__cards {
-  height: 60%;
-  width: 50%;
-  border: 1px solid black;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
 }
 
 .Dashboard .dashboard-content__controllers {
-  height: 60%;
-  width: 10%;
-  border: 1px solid black;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.Dashboard .dashboard-content__controllers .btn {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  padding: 12px 15px;
 }
 /*# sourceMappingURL=Dashboard.css.map */

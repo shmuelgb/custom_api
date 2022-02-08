@@ -24,10 +24,12 @@ export const useUserCollectionsPro = () => {
   return [useContext(UserCollectionsPro), useContext(UserCollectionsProUpdate)];
 };
 
+const user = JSON.parse(localStorage.getItem("user"));
+
 export default function SessionProvider({ children }) {
   const [token, setToken] = useState();
   const [isMobile, setIsMobile] = useState(false);
-  const [userInfo, setUserInfo] = useState(localStorage.getItem("user"));
+  const [userInfo, setUserInfo] = useState(user);
   const [userCollections, setUserCollections] = useState();
   return (
     <tokenPro.Provider value={token}>

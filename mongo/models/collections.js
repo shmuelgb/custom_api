@@ -11,10 +11,6 @@ const collectionSchema = new mongoose.Schema(
     userSchema: {
       type: mongoose.Schema.Types.Mixed,
     },
-    docsSum: {
-      type: Number,
-      default: 0,
-    },
     owners: [
       {
         userId: {

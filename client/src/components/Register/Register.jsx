@@ -22,7 +22,7 @@ export default function Register() {
       });
       setToken(data);
       localStorage.setItem("token", data.token);
-      localStorage.setItem("user", data.user);
+      localStorage.setItem("user", JSON.stringify(data.user));
       setUserInfo(data.user);
       console.log({ userInfo });
       history.push("/dashboard");

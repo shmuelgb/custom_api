@@ -30,6 +30,10 @@ const userSchema = new mongoose.Schema({
       name: {
         type: String,
       },
+      docsSum: {
+        type: Number,
+        default: 0,
+      },
       reference: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Collections",
