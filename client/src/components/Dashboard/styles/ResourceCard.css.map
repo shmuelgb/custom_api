@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "Dashboard.scss"
+        "ResourceCard.scss"
     ],
     "names": [],
-    "file": "Dashboard.css"
+    "file": "ResourceCard.css"
 }

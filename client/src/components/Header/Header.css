@@ -7,7 +7,7 @@
   width: 100%;
   position: fixed;
   height: 8vh;
-  background-color: rgba(98, 109, 113, 0.4);
+  background-color: rgba(98, 109, 113, 0.3);
   z-index: 10;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -1,0 +1,41 @@
+.Dashboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding-top: 8vh;
+}
+
+.Dashboard .dashboard-content {
+  height: 80vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.Dashboard .dashboard-content__cards {
+  height: 60%;
+  width: 50%;
+  border: 1px solid black;
+}
+
+.Dashboard .dashboard-content__controllers {
+  height: 60%;
+  width: 10%;
+  border: 1px solid black;
+}
+/*# sourceMappingURL=Dashboard.css.map */
