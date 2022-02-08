@@ -58,7 +58,8 @@ export default function Dashboard() {
       return (
         <ViewCollectionData collectionData={popup.data} setPopup={setPopup} />
       );
-    if (popup.type === "edit") return <CreateCollection edit={popup.edit} />;
+    if (popup.type === "edit")
+      return <CreateCollection setPopup={setPopup} edit={popup.edit} />;
   };
 
   const handleDocs = () => {
