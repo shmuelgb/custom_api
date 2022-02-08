@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import caServer, { getAuthHeader } from "../../api/ca_server";
 import {
@@ -8,12 +8,15 @@ import {
 } from "../../providers/SessionProvider";
 import "./styles/Dashboard.css";
 import ResourceCard from "./ResourceCard";
+import ViewCollectionData from "./ViewCollectionData";
+import CreateCollection from "./CreateCollection";
 
 export default function Dashboard() {
   const [token] = useTokenPro();
   const [userCollections, setUserCollections] = useUserCollectionsPro();
   const [userInfo] = useUserInfoPro();
   const history = useHistory();
+  const [popup, setPopup] = useState("");
 
   useEffect(() => {
     if (!token) history.push("/login");
@@ -39,20 +42,43 @@ export default function Dashboard() {
     if (userCollections) {
       console.log({ userCollections });
       return userCollections.map((collection) => {
-        return <ResourceCard key={collection._id} collection={collection} />;
+        return (
+          <ResourceCard
+            key={collection._id}
+            collection={collection}
+            setPopup={setPopup}
+          />
+        );
       });
     }
   };
 
+  const displayPopup = () => {
+    if (popup.type === "view")
+      return (
+        <ViewCollectionData collectionData={popup.data} setPopup={setPopup} />
+      );
+    if (popup.type === "edit") return <CreateCollection edit={popup.edit} />;
+  };
+
+  const handleDocs = () => {
+    history.push("/docs");
+  };
+
   return (
     <div className="Dashboard">
-      <h1>Hello {userInfo.name.split(" ")[0]}!</h1>
-      <h2>Here's Your API:</h2>
-      <div className="dashboard-content">
-        <div className="dashboard-content__cards">{generateCards()}</div>
-        <div className="dashboard-content__controllers">
-          <button className="btn">Create new resource</button>
-          <button className="btn">How To Use?</button>
+      {popup && displayPopup()}
+      <div className={`dashboard-wrapper`}>
+        <h1>Hello {userInfo.name.split(" ")[0]}!</h1>
+        <h2>Here's Your API:</h2>
+        <div className="dashboard-content">
+          <div className="dashboard-content__cards">{generateCards()}</div>
+          <div className="dashboard-content__controllers">
+            <button className="btn">Create New Resource</button>
+            <button onClick={handleDocs} className="btn">
+              How To Use?
+            </button>
+          </div>
         </div>
       </div>
     </div>

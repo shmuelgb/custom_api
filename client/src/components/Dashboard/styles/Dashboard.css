@@ -7,6 +7,13 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
+  min-height: 90%;
+  padding-top: 9vh;
+  position: relative;
+}
+
+.Dashboard .dashboard-wrapper {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -18,16 +25,14 @@
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
-  min-height: 100%;
-  padding-top: 9vh;
 }
 
-.Dashboard h1 {
+.Dashboard .dashboard-wrapper h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
-.Dashboard .dashboard-content {
+.Dashboard .dashboard-wrapper .dashboard-content {
   height: 80vh;
   width: 100%;
   margin-top: 20px;
@@ -39,7 +44,7 @@
           justify-content: space-evenly;
 }
 
-.Dashboard .dashboard-content__cards {
+.Dashboard .dashboard-wrapper .dashboard-content__cards {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -49,7 +54,7 @@
       grid-template-columns: repeat(2, 1fr);
 }
 
-.Dashboard .dashboard-content__controllers {
+.Dashboard .dashboard-wrapper .dashboard-content__controllers {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -71,7 +76,7 @@
   border-radius: 10px;
 }
 
-.Dashboard .dashboard-content__controllers .btn {
+.Dashboard .dashboard-wrapper .dashboard-content__controllers .btn {
   font-size: 1rem;
   margin-bottom: 15px;
   height: -webkit-fit-content;

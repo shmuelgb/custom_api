@@ -25,8 +25,12 @@ const createNewDocument = async (req, res) => {
     const { model, body, user } = req;
     const newDocument = new model(body);
     const savedDocument = await newDocument.save();
-    collectionInfo.docsSum += 1;
-    await collectionInfo.save();
+    user.collections.forEach((collection) => {
+      if (collection.name === model.collection.name) {
+        collection.docsSum += 1;
+      }
+    });
+    await user.save();
     res.send(savedDocument);
   } catch (e) {
     console.log(e);
@@ -51,11 +55,15 @@ const updateDoc = async (req, res) => {
 
 const deleteDoc = async (req, res) => {
   try {
-    const { model, collectionInfo } = req;
+    const { model, user } = req;
     const docId = req.params.docId;
     const deletedDoc = await model.findByIdAndDelete(docId);
-    collectionInfo.docsSum -= 1;
-    await collectionInfo.save();
+    user.collections.forEach((collection) => {
+      if (collection.name === model.collection.name) {
+        collection.docsSum += 1;
+      }
+    });
+    await user.save();
     res.send(deletedDoc);
   } catch (e) {
     console.log(e);
