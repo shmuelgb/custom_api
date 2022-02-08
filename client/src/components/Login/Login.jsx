@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useTokenPro } from "../../providers/SessionProvider";
-import Background from "../Background/Background";
+import { useTokenPro, useUserInfoPro } from "../../providers/SessionProvider";
 import caServer from "../../api/ca_server";
 import { Link, useHistory } from "react-router-dom";
 import "./Login.css";
 
 export default function Login() {
   const [token, setToken] = useTokenPro();
+  const [userInfo, setUserInfo] = useUserInfoPro();
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,6 +20,9 @@ export default function Login() {
       });
       setToken(data);
       localStorage.setItem("token", data.token);
+      localStorage.setItem("user", data.user);
+      setUserInfo(data.user);
+      console.log({ userInfo });
       history.push("/dashboard");
     } catch (err) {
       console.log(err);
@@ -33,7 +36,6 @@ export default function Login() {
 
   return (
     <div className="Login">
-      <Background />
       <div className="login__container">
         <h1>Log In</h1>
         <input

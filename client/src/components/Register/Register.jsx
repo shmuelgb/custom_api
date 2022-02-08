@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { useTokenPro } from "../../providers/SessionProvider";
+import { useTokenPro, useUserInfoPro } from "../../providers/SessionProvider";
 import caServer from "../../api/ca_server";
-import Background from "../Background/Background";
 import "./Register.css";
 
 export default function Register() {
   const [token, setToken] = useTokenPro();
+  const [userInfo, setUserInfo] = useUserInfoPro();
   const history = useHistory();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,6 +22,9 @@ export default function Register() {
       });
       setToken(data);
       localStorage.setItem("token", data.token);
+      localStorage.setItem("user", data.user);
+      setUserInfo(data.user);
+      console.log({ userInfo });
       history.push("/dashboard");
     } catch (err) {
       console.log(err);
@@ -35,9 +38,8 @@ export default function Register() {
 
   return (
     <div className="Register">
-      <Background />
       <div className="register__container">
-        <h1>Sign In</h1>
+        <h1>Register</h1>
         <input
           type="text"
           name="name"

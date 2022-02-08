@@ -20,6 +20,7 @@ export default function Nav() {
       if (data) {
         setToken("");
         localStorage.removeItem("token");
+        localStorage.removeItem("user");
         history.push("/");
       }
     } catch (err) {

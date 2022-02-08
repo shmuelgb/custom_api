@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useTokenPro } from "../../providers/SessionProvider";
 import { useHistory } from "react-router-dom";
-import Background from "../Background/Background";
 
 export default function Dashboard() {
   const [token] = useTokenPro();
@@ -13,7 +12,10 @@ export default function Dashboard() {
 
   return (
     <div>
-      <Background />
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+      nostrum eos vitae eum temporibus quisquam laboriosam, ea veniam sequi
+      assumenda expedita ipsa doloremque praesentium officiis maiores commodi ut
+      est hic?
     </div>
   );
 }

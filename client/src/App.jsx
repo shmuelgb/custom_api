@@ -7,6 +7,7 @@ import Login from "./components/Login/Login";
 import Dashboard from "./components/Dashboard/Dashboard";
 import About from "./components/About/About";
 import Register from "./components/Register/Register";
+import Background from "./components/Background/Background";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" exact component={Home} />
           </Switch>
           <Header />
+          <Background />
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
           <Route path="/about" exact component={About} />
