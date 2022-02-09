@@ -19,6 +19,27 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  opacity: 0;
+  -webkit-animation: overlay 0.2s ease-in-out forwards alternate;
+          animation: overlay 0.2s ease-in-out forwards alternate;
+}
+
+@-webkit-keyframes overlay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes overlay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .CreateCollection .window {
@@ -33,6 +54,37 @@
   font-weight: bold;
   overflow-y: scroll;
   position: relative;
+  opacity: 0;
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2);
+  -webkit-animation: create-window 0.2s ease-in-out forwards alternate;
+          animation: create-window 0.2s ease-in-out forwards alternate;
+}
+
+@-webkit-keyframes create-window {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes create-window {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 .CreateCollection .window .btn {

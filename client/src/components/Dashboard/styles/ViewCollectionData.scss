@@ -9,6 +9,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  animation: overlay 0.2s ease-in-out forwards alternate;
+  @keyframes overlay {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   .data {
     text-align: left;
     width: 30%;
@@ -22,6 +33,19 @@
     font-weight: bold;
     overflow-y: scroll;
     position: relative;
+    opacity: 0;
+    transform: scale(0.2);
+    animation: data 0.2s ease-in-out forwards alternate;
+    @keyframes data {
+      0% {
+        opacity: 0;
+        transform: scale(0.2);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
 
     .btn {
       position: absolute;
