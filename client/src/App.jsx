@@ -8,6 +8,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import About from "./components/About/About";
 import Register from "./components/Register/Register";
 import Background from "./components/Background/Background";
+import Documentation from "./components/Documentation/Documentation";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/register" exact component={Register} />
           <Route path="/about" exact component={About} />
           <Route path="/dashboard" exact component={Dashboard} />
+          <Route path="/docs" exact component={Documentation} />
         </Router>
       </SessionProvider>
     </div>

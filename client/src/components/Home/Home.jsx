@@ -19,10 +19,9 @@ export default function Home() {
           <div className="text-container__content">
             <h2>Custom API</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-              quasi blanditiis nihil impedit doloremque similique amet facere
-              enim omnis ea sed, tempore magnam libero perferendis hic! Odio
-              rerum pariatur cumque.
+              Custom API lets you create and pre-define your own Database. Once
+              you have you're Database up and running, you'd be able to perform
+              all CRUD operations with REST API.
             </p>
           </div>
         </div>

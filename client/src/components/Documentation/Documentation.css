@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap");
+.Documentation {
+  min-height: 100vh;
+}
+
+.Documentation .header {
+  padding-top: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 50px;
+}
+
+.Documentation .header h3 {
+  width: 30%;
+  text-align: left;
+  padding-left: 10px;
+  margin-left: 20px;
+  font-size: 1.35rem;
+  border-left: 1px solid #1995ad;
+}
+
+.Documentation .documentation-content {
+  background-color: rgba(188, 186, 190, 0.3);
+  width: 90%;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.Documentation .documentation-content .doc-section {
+  margin-bottom: 40px;
+}
+
+.Documentation .documentation-content .doc-section h2 {
+  margin-bottom: 10px;
+}
+
+.Documentation .documentation-content .doc-section ul li {
+  font-size: 1.2rem;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.Documentation .documentation-content .doc-section ul li span {
+  font-weight: bold;
+  font-family: "Source Code Pro", monospace;
+}
+
+.Documentation .documentation-content .doc-section ul li a {
+  font-weight: bold;
+  text-decoration: underline;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.Documentation .documentation-content .doc-section ul li a:hover {
+  color: #a1d6e2;
+}
+
+@media (max-width: 768px) {
+  .Documentation .header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .Documentation .header h3 {
+    width: 80%;
+    text-align: center;
+    margin-left: 0;
+    margin-top: 20px;
+    padding: 20px 0;
+    font-size: 1.2rem;
+    border: none;
+    border-top: 1px solid #1995ad;
+    border-bottom: 1px solid #1995ad;
+  }
+}
+/*# sourceMappingURL=Documentation.css.map */
