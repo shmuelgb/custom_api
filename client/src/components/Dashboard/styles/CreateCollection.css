@@ -106,14 +106,25 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.CreateCollection .window ul li p {
+  min-width: 30%;
+  text-align: left;
+}
+
+.CreateCollection .window ul li p:last-child {
+  min-width: 40%;
+  text-align: right;
+  font-size: 0.9rem;
 }
 
 .CreateCollection .window ul li h3 {
   margin-right: 5px;
-  min-width: 20%;
+  width: 25%;
 }
 
 .CreateCollection .window ul li:first-child {
@@ -121,6 +132,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.CreateCollection .window ul li:first-child p {
   text-align: center;
 }
 

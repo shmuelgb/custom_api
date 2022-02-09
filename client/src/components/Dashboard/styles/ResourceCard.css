@@ -34,6 +34,11 @@
   background-color: rgba(98, 109, 113, 0.4);
 }
 
+.ResourceCard:hover:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
 .ResourceCard ul {
   width: 70%;
   list-style: none;

@@ -88,7 +88,7 @@ export default function Dashboard() {
     <div className="Dashboard">
       {popup && displayPopup()}
       <div className={`dashboard-wrapper`}>
-        <h1>Hello {userInfo.name.split(" ")[0]}!</h1>
+        {userInfo && <h1>Hello {userInfo.name.split(" ")[0]}!</h1>}
         <h2>Here's Your API:</h2>
         <div className="dashboard-content">
           <div className="dashboard-content__cards">{generateCards()}</div>

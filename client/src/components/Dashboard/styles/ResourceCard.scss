@@ -17,6 +17,9 @@
   &:hover {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     background-color: rgba($color: $color-11-slate, $alpha: 0.4);
+    &:active {
+      transform: scale(0.9);
+    }
   }
   ul {
     width: 70%;

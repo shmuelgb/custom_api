@@ -56,7 +56,7 @@ export default function ResourceCard({ collection, setPopup }) {
 
   return (
     <div className="ResourceCard">
-      <ul>
+      <ul onClick={handleEdit}>
         <li>
           <span>
             <h2>{collection.name}</h2>
