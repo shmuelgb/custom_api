@@ -37,17 +37,22 @@
 
 @media (max-width: 768px) {
   .Nav {
+    justify-content: space-around;
     img {
       display: none;
     }
-    .nav__links .btn {
-      border-left: 0;
+    .nav__links {
+      width: 100%;
+      justify-content: space-evenly;
+      .btn {
+        border-left: 0;
+      }
     }
-  }
-  .nav__links .btn {
-    padding: 7px 10px;
-  }
-  .nav__links .btn:last-child {
-    padding: 7px 10px 14px 10px;
+    .btn {
+      padding: 7px 10px;
+    }
+    .btn:last-child {
+      padding: 7px 10px 14px 10px;
+    }
   }
 }

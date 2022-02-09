@@ -96,11 +96,11 @@ export default function Dashboard() {
             <button onClick={handleCreate} className="btn">
               Create New Resource
             </button>
-            <button onClick={handleDocs} className="btn">
-              How To Use?
-            </button>
             <button onClick={() => setPopup({ type: "token" })} className="btn">
               Generate Auth Token
+            </button>
+            <button onClick={handleDocs} className="btn">
+              How To Use?
             </button>
             <button onClick={handleRefresh} className="btn">
               Refresh

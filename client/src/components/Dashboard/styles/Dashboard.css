@@ -33,7 +33,7 @@
 }
 
 .Dashboard .dashboard-wrapper .dashboard-content {
-  height: 80vh;
+  min-height: 80vh;
   width: 100%;
   margin-top: 20px;
   display: -webkit-box;
@@ -125,9 +125,6 @@
 }
 
 @media (max-width: 768px) {
-  .Dashboard .dashboard-wrapper {
-    margin-top: 50px;
-  }
   .Dashboard .dashboard-wrapper .dashboard-content {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

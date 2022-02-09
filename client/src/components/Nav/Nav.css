@@ -56,16 +56,26 @@
 }
 
 @media (max-width: 768px) {
+  .Nav {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
   .Nav img {
     display: none;
+  }
+  .Nav .nav__links {
+    width: 100%;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
   }
   .Nav .nav__links .btn {
     border-left: 0;
   }
-  .nav__links .btn {
+  .Nav .btn {
     padding: 7px 10px;
   }
-  .nav__links .btn:last-child {
+  .Nav .btn:last-child {
     padding: 7px 10px 14px 10px;
   }
 }

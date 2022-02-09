@@ -5,7 +5,7 @@ export default function TokenPopup({ setPopup }) {
   const [token] = useTokenPro();
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(token);
+    navigator.clipboard.writeText(`Bearer ${token}`);
     handleClose();
   };
 
