@@ -13,18 +13,18 @@
       padding-left: 10px;
       margin-left: 20px;
       font-size: 1.35rem;
-      border-left: 1px solid $color-4-blue;
+      border-left: 1px solid #4f7cc8;
     }
   }
   .documentation-content {
-    background-color: rgba($color: $color-2-gray, $alpha: 0.3);
     width: 90%;
     margin: 0 auto;
-    padding: 30px;
     border-radius: 8px;
     margin-top: 20px;
     text-align: left;
     .doc-section {
+      padding: 30px;
+      background-color: rgba($color: $color-2-gray, $alpha: 0.3);
       margin-bottom: 40px;
       h2 {
         margin-bottom: 10px;
@@ -64,8 +64,8 @@
         padding: 20px 0;
         font-size: 1.2rem;
         border: none;
-        border-top: 1px solid $color-4-blue;
-        border-bottom: 1px solid $color-4-blue;
+        border-top: 1px solid $color-logo;
+        border-bottom: 1px solid $color-logo;
       }
     }
   }

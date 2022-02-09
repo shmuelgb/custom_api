@@ -21,7 +21,7 @@ export default function Home() {
             <p>
               Custom API lets you create and pre-define your own Database. Once
               you have you're Database up and running, you'd be able to perform
-              all CRUD operations with REST API.
+              all CRUD operations from any environment, with REST API.
             </p>
           </div>
         </div>
