@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Methods({ collectionName }) {
   const endpoint = `http://sgb-custom-api.herokuapp.com/api/collections`;
@@ -47,6 +48,12 @@ export default function Methods({ collectionName }) {
           <p>Delete Document</p>
         </li>
       </ul>
+      <div className="auth-note">
+        <h2>
+          Note: All requests must include Authorization header with your token.
+        </h2>
+        <Link to={"/docs"}>Learn More</Link>
+      </div>
     </div>
   );
 }

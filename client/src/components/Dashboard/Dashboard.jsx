@@ -10,6 +10,7 @@ import "./styles/Dashboard.css";
 import ResourceCard from "./ResourceCard";
 import ViewCollectionData from "./ViewCollectionData";
 import CreateCollection from "./CreateCollection";
+import TokenPopup from "./TokenPopup";
 
 export default function Dashboard() {
   const [token] = useTokenPro();
@@ -68,6 +69,7 @@ export default function Dashboard() {
       );
     if (popup.type === "create")
       return <CreateCollection setPopup={setPopup} />;
+    if (popup.type === "token") return <TokenPopup setPopup={setPopup} />;
   };
 
   const handleDocs = () => {
@@ -92,6 +94,9 @@ export default function Dashboard() {
             </button>
             <button onClick={handleDocs} className="btn">
               How To Use?
+            </button>
+            <button onClick={() => setPopup({ type: "token" })} className="btn">
+              Generate Auth Token
             </button>
           </div>
         </div>

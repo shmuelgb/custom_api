@@ -23,7 +23,6 @@ export default function CreateCollection({
   const postNewCollection = async () => {
     try {
       const body = JSON.stringify({ name, schema: schemaFields });
-      console.log({ body });
       const { data } = await ca_server.post(
         "/collections/createCollection",
         body,
@@ -38,6 +37,13 @@ export default function CreateCollection({
 
   const updateSchema = async () => {
     try {
+      const body = JSON.stringify({ schema: schemaFields });
+      const { data } = await ca_server.patch(
+        `/collections/${name}/schema`,
+        body,
+        getAuthHeader()
+      );
+      console.log({ data });
       handleExit();
     } catch (e) {
       console.log(e);
@@ -100,8 +106,8 @@ export default function CreateCollection({
               <option value="string">String</option>
               <option value="number">Number</option>
               <option value="boolean">Boolean</option>
-              <option value="[]">Array</option>
-              <option value="{}">Object</option>
+              <option value="array">Array</option>
+              <option value="object">Object</option>
             </select>
           </div>
         );
