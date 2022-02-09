@@ -56,13 +56,14 @@ export default function CreateCollection({
     } else setSchemaFields([...schemaFields, { [name]: type }]);
   };
 
-  const updateSchemaFields = (isName, value, i) => {
+  const updateSchemaFields = (isName, value, i, toDelete) => {
     let schemaCopy = [...schemaFields];
     if (isName) {
       schemaCopy[i] = { [value]: schemaCopy[i][Object.keys(schemaCopy[i])[0]] };
     } else {
       schemaCopy[i] = { [Object.keys(schemaCopy[i])[0]]: value };
     }
+    if (toDelete) schemaCopy.splice(i, 1);
     setSchemaFields(schemaCopy);
   };
 
@@ -109,6 +110,12 @@ export default function CreateCollection({
               <option value="array">Array</option>
               <option value="object">Object</option>
             </select>
+            <button
+              onClick={() => updateSchemaFields(false, null, i, true)}
+              className="btn btn-remove-field"
+            >
+              x
+            </button>
           </div>
         );
       });
@@ -124,16 +131,23 @@ export default function CreateCollection({
         {generateHeader()}
         <div className="schema">
           {generateFields()}
-          <button
-            onClick={() => addFieldToSchema("Field Name", "string")}
-            className="btn btn-plus"
-          >
-            +
-          </button>
+          <div className="addFields">
+            <button
+              onClick={() => addFieldToSchema("Field Name", "string")}
+              className="btn btn-plus"
+            >
+              +
+            </button>
+            Add New Field
+          </div>
         </div>
         <Methods collectionName={name} />
-        <button onClick={handleExit}>Cancel</button>
-        <button onClick={handleSave}>Save</button>
+        <button className="btn btn-save" onClick={handleSave}>
+          Save
+        </button>
+        <button className="btn btn-save" onClick={handleExit}>
+          Cancel
+        </button>
       </div>
     </div>
   );

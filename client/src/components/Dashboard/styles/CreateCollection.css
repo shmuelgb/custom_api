@@ -43,14 +43,14 @@
 }
 
 .CreateCollection .window {
+  font-family: "Mulish", sans-serif;
   width: 40%;
   height: 80%;
   background-color: #f1f1f2;
   border-radius: 10px;
-  font-family: "Source Code Pro", monospace;
   padding: 20px;
   font-size: 1rem;
-  color: rgba(0, 0, 0, 0.6);
+  color: #1995ad;
   font-weight: bold;
   overflow-y: scroll;
   position: relative;
@@ -87,6 +87,113 @@
   }
 }
 
+.CreateCollection .window h1 {
+  margin-bottom: 15px;
+}
+
+.CreateCollection .window input {
+  margin-bottom: 20px;
+}
+
+.CreateCollection .window ul {
+  list-style: none;
+}
+
+.CreateCollection .window ul li {
+  border-bottom: 1px solid rgba(25, 149, 173, 0.2);
+  padding: 10px 0;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.CreateCollection .window ul li h3 {
+  margin-right: 5px;
+  min-width: 20%;
+}
+
+.CreateCollection .window ul li:first-child {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.CreateCollection .window ul li:last-child {
+  margin-bottom: 20px;
+}
+
+.CreateCollection .window .auth-note a {
+  color: #626d71;
+  text-decoration: underline;
+  margin-bottom: 10px;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.CreateCollection .window .btn-save {
+  margin: 0px 5px;
+}
+
+.CreateCollection .window .fields {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+.CreateCollection .window .fields input {
+  width: 40%;
+  height: 50px;
+  margin: 0;
+}
+
+.CreateCollection .window .fields select {
+  width: 40%;
+  height: 50px;
+  border: none;
+  border-bottom: 1px solid #1995ad;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.CreateCollection .window .fields select option {
+  background-color: #f1f1f2;
+  color: #1995ad;
+}
+
+.CreateCollection .window .fields select:focus {
+  outline: none;
+  border-bottom: 1px solid #1995ad;
+}
+
+.CreateCollection .window .fields select:active {
+  border-bottom: 1px solid #1995ad;
+}
+
+.CreateCollection .window .fields .btn-remove-field {
+  border-radius: 50%;
+  padding: 3px 8px 4px 8px;
+  font-weight: bold;
+  margin-right: 5px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .CreateCollection .window .btn-exit {
   position: absolute;
   top: 0;
@@ -115,5 +222,6 @@
   border-radius: 50%;
   padding: 5px 10px 6px 10px;
   font-weight: bold;
+  margin-right: 5px;
 }
 /*# sourceMappingURL=CreateCollection.css.map */

@@ -20,14 +20,14 @@
     }
   }
   .window {
+    font-family: $font-Mulish;
     width: 40%;
     height: 80%;
     background-color: $color-1-white;
     border-radius: 10px;
-    font-family: $font-Source-Code;
     padding: 20px;
     font-size: 1rem;
-    color: rgba($color: #000, $alpha: 0.6);
+    color: $color-4-blue;
     font-weight: bold;
     overflow-y: scroll;
     position: relative;
@@ -42,6 +42,81 @@
       100% {
         opacity: 1;
         transform: scale(1);
+      }
+    }
+    h1 {
+      margin-bottom: 15px;
+    }
+    input {
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style: none;
+      li {
+        border-bottom: 1px solid rgba($color: $color-4-blue, $alpha: 0.2);
+        padding: 10px 0;
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        h3 {
+          margin-right: 5px;
+          min-width: 20%;
+        }
+        &:first-child {
+          flex-direction: column;
+          text-align: center;
+        }
+        &:last-child {
+          margin-bottom: 20px;
+        }
+      }
+    }
+    .auth-note a {
+      color: $color-11-slate;
+      text-decoration: underline;
+      margin-bottom: 10px;
+      display: inline-block;
+      font-size: 1rem;
+    }
+    .btn-save {
+      margin: 0px 5px;
+    }
+    .fields {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      input {
+        width: 40%;
+        height: 50px;
+        margin: 0;
+      }
+      select {
+        width: 40%;
+        height: 50px;
+        border: none;
+        border-bottom: 1px solid $color-4-blue;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        transition: all 0.1s ease-in-out;
+        option {
+          background-color: $color-1-white;
+          color: $color-4-blue;
+        }
+        &:focus {
+          outline: none;
+          border-bottom: 1px solid $color-4-blue;
+        }
+        &:active {
+          border-bottom: 1px solid $color-4-blue;
+        }
+      }
+      .btn-remove-field {
+        border-radius: 50%;
+        padding: 3px 8px 4px 8px;
+        font-weight: bold;
+        margin-right: 5px;
+        height: fit-content;
       }
     }
 
@@ -71,6 +146,7 @@
         border-radius: 50%;
         padding: 5px 10px 6px 10px;
         font-weight: bold;
+        margin-right: 5px;
       }
     }
   }

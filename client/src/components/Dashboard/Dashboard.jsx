@@ -98,6 +98,9 @@ export default function Dashboard() {
             <button onClick={() => setPopup({ type: "token" })} className="btn">
               Generate Auth Token
             </button>
+            <button onClick={() => setUserCollections(null)} className="btn">
+              Refresh
+            </button>
           </div>
         </div>
       </div>
