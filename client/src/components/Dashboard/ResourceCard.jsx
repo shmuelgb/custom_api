@@ -34,7 +34,11 @@ export default function ResourceCard({ collection, setPopup }) {
   };
 
   const handleEdit = () => {
-    setPopup({ type: "edit", schema: collectionInfo.userSchema });
+    setPopup({
+      type: "edit",
+      oldSchema: collectionInfo.userSchema,
+      collectionName: collection.name,
+    });
   };
 
   const handleDelete = async () => {

@@ -59,11 +59,23 @@ export default function Dashboard() {
         <ViewCollectionData collectionData={popup.data} setPopup={setPopup} />
       );
     if (popup.type === "edit")
-      return <CreateCollection setPopup={setPopup} edit={popup.edit} />;
+      return (
+        <CreateCollection
+          setPopup={setPopup}
+          collectionName={popup.collectionName}
+          oldSchema={popup.oldSchema}
+        />
+      );
+    if (popup.type === "create")
+      return <CreateCollection setPopup={setPopup} />;
   };
 
   const handleDocs = () => {
     history.push("/docs");
+  };
+
+  const handleCreate = () => {
+    setPopup({ type: "create" });
   };
 
   return (
@@ -75,7 +87,9 @@ export default function Dashboard() {
         <div className="dashboard-content">
           <div className="dashboard-content__cards">{generateCards()}</div>
           <div className="dashboard-content__controllers">
-            <button className="btn">Create New Resource</button>
+            <button onClick={handleCreate} className="btn">
+              Create New Resource
+            </button>
             <button onClick={handleDocs} className="btn">
               How To Use?
             </button>

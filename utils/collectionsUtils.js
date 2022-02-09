@@ -5,6 +5,7 @@ const User = require("../mongo/models/users");
 
 const createNewUserCollection = async (req, res) => {
   try {
+    console.log({ body: req.body });
     const userId = req.user._id;
     const collectionName = req.body.name;
     const fields = req.body.schema;
