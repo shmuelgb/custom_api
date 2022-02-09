@@ -50,7 +50,7 @@ export default function Documentation() {
               <br />
               For example:
               <span>
-                {" Axios.get(URL,{headers: Authorization: 'Bearer ${token}'});"}
+                {"Axios.get(URL,{headers: Authorization: 'Bearer [token]'});"}
               </span>
             </li>
             <li>
