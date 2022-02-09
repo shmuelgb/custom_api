@@ -224,4 +224,10 @@
   font-weight: bold;
   margin-right: 5px;
 }
+
+@media (max-width: 768px) {
+  .CreateCollection .window {
+    width: 90%;
+  }
+}
 /*# sourceMappingURL=CreateCollection.css.map */

@@ -7,6 +7,7 @@ export default function CreateCollection({
   setPopup,
   oldSchema,
   collectionName,
+  refresh,
 }) {
   const [schemaFields, setSchemaFields] = useState(oldSchema);
   const [name, setName] = useState(collectionName || "");
@@ -29,6 +30,7 @@ export default function CreateCollection({
         getAuthHeader()
       );
       console.log({ data });
+      refresh();
       handleExit();
     } catch (e) {
       console.log(e);
@@ -44,6 +46,7 @@ export default function CreateCollection({
         getAuthHeader()
       );
       console.log({ data });
+      refresh();
       handleExit();
     } catch (e) {
       console.log(e);

@@ -68,7 +68,7 @@ export default function Dashboard() {
         />
       );
     if (popup.type === "create")
-      return <CreateCollection setPopup={setPopup} />;
+      return <CreateCollection setPopup={setPopup} refresh={handleRefresh} />;
     if (popup.type === "token") return <TokenPopup setPopup={setPopup} />;
   };
 
@@ -78,6 +78,10 @@ export default function Dashboard() {
 
   const handleCreate = () => {
     setPopup({ type: "create" });
+  };
+
+  const handleRefresh = () => {
+    setUserCollections(null);
   };
 
   return (
@@ -98,7 +102,7 @@ export default function Dashboard() {
             <button onClick={() => setPopup({ type: "token" })} className="btn">
               Generate Auth Token
             </button>
-            <button onClick={() => setUserCollections(null)} className="btn">
+            <button onClick={handleRefresh} className="btn">
               Refresh
             </button>
           </div>

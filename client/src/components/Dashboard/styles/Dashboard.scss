@@ -71,3 +71,21 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .Dashboard {
+    .dashboard-wrapper {
+      margin-top: 50px;
+      .dashboard-content {
+        flex-direction: column;
+        align-items: center;
+        &__cards {
+          grid-template-columns: repeat(1, 1fr);
+        }
+        &__controllers {
+          width: 280px;
+        }
+      }
+    }
+  }
+}
