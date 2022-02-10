@@ -55,7 +55,7 @@ a {
   }
 }
 .spinner {
-  border: 7px solid $color-11-slate;
+  border: 7px solid rgba($color: $color-11-slate, $alpha: 0.6);
   border-top: 7px solid $color-3-ice;
   border-radius: 50%;
   width: 70px;

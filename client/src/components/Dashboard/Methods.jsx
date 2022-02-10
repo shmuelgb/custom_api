@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Methods({ collectionName }) {
   const endpoint = `http://sgb-custom-api.herokuapp.com/api/collections`;
+  collectionName = collectionName.toLowerCase();
   return (
     <div className="Methods">
       <ul>
@@ -50,7 +51,8 @@ export default function Methods({ collectionName }) {
       </ul>
       <div className="auth-note">
         <h3>
-          Note: All requests must include Authorization header with your token.
+          NOTE: All requests must include an Authorization header with your
+          token.
         </h3>
         <Link to={"/docs"}>Learn More</Link>
       </div>

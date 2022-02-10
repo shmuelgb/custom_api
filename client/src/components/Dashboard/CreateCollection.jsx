@@ -23,6 +23,7 @@ export default function CreateCollection({
 
   const postNewCollection = async () => {
     try {
+      if (!schemaFields) throw new Error("No schema fields");
       const body = JSON.stringify({ name, schema: schemaFields });
       const { data } = await ca_server.post(
         "/collections/createCollection",
@@ -39,6 +40,7 @@ export default function CreateCollection({
 
   const updateSchema = async () => {
     try {
+      if (!schemaFields) throw new Error("No schema fields");
       const body = JSON.stringify({ schema: schemaFields });
       const { data } = await ca_server.patch(
         `/collections/${name}/schema`,

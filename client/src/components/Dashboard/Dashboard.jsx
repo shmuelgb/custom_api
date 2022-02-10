@@ -18,7 +18,7 @@ export default function Dashboard() {
   const [userInfo] = useUserInfoPro();
   const history = useHistory();
   const [popup, setPopup] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState("");
 
   useEffect(() => {
     if (!token) history.push("/login");
@@ -27,13 +27,13 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchUserCollections = async () => {
       try {
-        setIsLoading(true);
+        setIsLoading("loading");
         let { data } = await caServer.get("/collections", getAuthHeader());
         data = data.map((collection) => {
           collection.name = collection.name.split("_")[1];
           return collection;
         });
-        setIsLoading(false);
+        setIsLoading("");
         setUserCollections(data);
       } catch (err) {
         setIsLoading(false);
@@ -69,6 +69,7 @@ export default function Dashboard() {
           setPopup={setPopup}
           collectionName={popup.collectionName}
           oldSchema={popup.oldSchema}
+          refresh={handleRefresh}
         />
       );
     if (popup.type === "create")
@@ -95,7 +96,10 @@ export default function Dashboard() {
         {userInfo && <h1>Hello {userInfo.name.split(" ")[0]}!</h1>}
         <h2>Here's Your API:</h2>
         <div className="dashboard-content">
-          <div className="dashboard-content__cards">{generateCards()}</div>
+          <div className={`dashboard-content__cards ${isLoading}`}>
+            {isLoading && <figure className="spinner"></figure>}
+            {generateCards()}
+          </div>
           <div className="dashboard-content__controllers">
             <button onClick={handleCreate} className="btn">
               Create New Resource
@@ -109,7 +113,6 @@ export default function Dashboard() {
             <button onClick={handleRefresh} className="btn">
               Refresh
             </button>
-            {isLoading && <figure className="spinner"></figure>}
           </div>
         </div>
       </div>

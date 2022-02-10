@@ -71,7 +71,7 @@ a h1 {
 }
 
 .spinner {
-  border: 7px solid #626d71;
+  border: 7px solid rgba(98, 109, 113, 0.6);
   border-top: 7px solid #a1d6e2;
   border-radius: 50%;
   width: 70px;

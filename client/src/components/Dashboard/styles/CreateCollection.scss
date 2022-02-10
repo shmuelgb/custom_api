@@ -11,6 +11,7 @@
   align-items: center;
   opacity: 0;
   animation: overlay 0.2s ease-in-out forwards alternate;
+  z-index: 10;
   @keyframes overlay {
     0% {
       opacity: 0;
