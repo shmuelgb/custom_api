@@ -9,8 +9,8 @@ export default function Documentation() {
       <header className="header">
         <img src={logo} alt="logo" />
         <h3>
-          Custom API lets you create and pre-define your own Database. Once you
-          have you're Database up and running, you'd be able to perform all CRUD
+          Custom API lets you create and pre-define your own Database. Once
+          you're Database was created for you, you'd be able to perform all CRUD
           operations from any environment, with REST API.
         </h3>
       </header>
