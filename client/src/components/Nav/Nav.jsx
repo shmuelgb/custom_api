@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useTokenPro, useIsMobilePro } from "../../providers/SessionProvider";
 import logo from "../../assets/CA_logo2.png";
+import logoFigure from "../../assets/CA_logo_figure.png";
 import { Link, useHistory } from "react-router-dom";
 import caServer, { getAuthHeader } from "../../api/ca_server";
 import "./Nav.css";
@@ -43,6 +44,14 @@ export default function Nav() {
     <div className="Nav">
       <img onClick={navigateToHomepage} src={logo} alt="logo" />
       <div className="nav__links">
+        {isMobile && (
+          <img
+            onClick={navigateToHomepage}
+            className="mobile-logo"
+            src={logoFigure}
+            alt="logo"
+          />
+        )}
         <Link className="btn" to="/about">
           About
         </Link>

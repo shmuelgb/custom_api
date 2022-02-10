@@ -41,6 +41,10 @@
     img {
       display: none;
     }
+    .mobile-logo {
+      display: initial;
+      cursor: pointer;
+    }
     .nav__links {
       width: 100%;
       justify-content: space-evenly;
