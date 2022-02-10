@@ -11,6 +11,7 @@ export default function CreateCollection({
 }) {
   const [schemaFields, setSchemaFields] = useState(oldSchema);
   const [name, setName] = useState(collectionName || "");
+  const [error, setError] = useState("");
 
   const handleExit = () => {
     setPopup("");
@@ -24,6 +25,7 @@ export default function CreateCollection({
   const postNewCollection = async () => {
     try {
       if (!schemaFields) throw new Error("No schema fields");
+      if (!name) throw new Error("Please provide a name!");
       const body = JSON.stringify({ name, schema: schemaFields });
       const { data } = await ca_server.post(
         "/collections/createCollection",
@@ -34,6 +36,7 @@ export default function CreateCollection({
       refresh();
       handleExit();
     } catch (e) {
+      setError(e.message);
       console.log(e);
     }
   };
@@ -153,6 +156,7 @@ export default function CreateCollection({
         <button className="btn btn-save" onClick={handleExit}>
           Cancel
         </button>
+        {error && <p className="error">{error}</p>}
       </div>
     </div>
   );

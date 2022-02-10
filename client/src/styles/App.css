@@ -103,4 +103,10 @@ a h1 {
             transform: rotate(360deg);
   }
 }
+
+.error {
+  color: red;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
 /*# sourceMappingURL=App.css.map */
