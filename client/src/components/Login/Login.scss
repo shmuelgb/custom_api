@@ -1,12 +1,12 @@
 .Login {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   .login__container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 70%;
+    height: 85vh;
     h1 {
       margin-bottom: 15px;
     }

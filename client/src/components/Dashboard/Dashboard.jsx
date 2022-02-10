@@ -18,6 +18,7 @@ export default function Dashboard() {
   const [userInfo] = useUserInfoPro();
   const history = useHistory();
   const [popup, setPopup] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (!token) history.push("/login");
@@ -26,13 +27,16 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchUserCollections = async () => {
       try {
+        setIsLoading(true);
         let { data } = await caServer.get("/collections", getAuthHeader());
         data = data.map((collection) => {
           collection.name = collection.name.split("_")[1];
           return collection;
         });
+        setIsLoading(false);
         setUserCollections(data);
       } catch (err) {
+        setIsLoading(false);
         console.log(err);
       }
     };
@@ -105,6 +109,7 @@ export default function Dashboard() {
             <button onClick={handleRefresh} className="btn">
               Refresh
             </button>
+            {isLoading && <figure className="spinner"></figure>}
           </div>
         </div>
       </div>

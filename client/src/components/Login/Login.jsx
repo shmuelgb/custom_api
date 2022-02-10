@@ -11,13 +11,16 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = async () => {
     try {
+      setIsLoading(true);
       const { data } = await caServer.post("/login", {
         email,
         password,
       });
+      setIsLoading(false);
       setToken(data);
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
@@ -25,6 +28,7 @@ export default function Login() {
       console.log({ userInfo });
       history.push("/dashboard");
     } catch (err) {
+      setIsLoading(false);
       console.log(err);
       if (err.response.data) setError(err.response.data.message);
     }
@@ -65,6 +69,7 @@ export default function Login() {
             Register now
           </Link>
         </div>
+        {isLoading && <figure className="spinner"></figure>}
       </div>
     </div>
   );

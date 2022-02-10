@@ -25,7 +25,6 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <figure></figure>
       </div>
     </div>
   );

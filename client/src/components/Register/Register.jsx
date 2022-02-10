@@ -12,14 +12,17 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleRegister = async () => {
     try {
+      setIsLoading(true);
       const { data } = await caServer.post("/signIn", {
         name,
         email,
         password,
       });
+      setIsLoading(false);
       setToken(data);
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
@@ -28,6 +31,7 @@ export default function Register() {
       history.push("/dashboard");
     } catch (err) {
       console.log(err);
+      setIsLoading(false);
       setError(err.response.data.message);
     }
   };
@@ -73,6 +77,7 @@ export default function Register() {
             Login now
           </Link>
         </div>
+        {isLoading && <figure className="spinner"></figure>}
       </div>
     </div>
   );

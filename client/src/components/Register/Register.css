@@ -16,7 +16,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 70%;
+  height: 85vh;
 }
 
 .Register .register__container h1 {
