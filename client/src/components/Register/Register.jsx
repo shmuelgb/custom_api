@@ -69,7 +69,7 @@ export default function Register() {
         <button className="btn" onClick={handleRegister}>
           Register
         </button>
-        <p className="register__error">{error}</p>
+        <p className="error">{error}</p>
         <div>
           Already have an account?
           <br />

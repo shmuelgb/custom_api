@@ -60,7 +60,7 @@ export default function Login() {
         <button className="btn" onClick={handleLogin}>
           Login
         </button>
-        <p className="login__error">{error}</p>
+        <p className="error">{error}</p>
         <div>{/* <Link to="/reset">Forgot Password</Link> */}</div>
         <div>
           Don't have an account yet?
