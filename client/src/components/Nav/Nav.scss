@@ -40,6 +40,7 @@
     justify-content: space-around;
     img {
       display: none;
+      max-height: 40px;
     }
     .mobile-logo {
       display: initial;
@@ -48,6 +49,9 @@
     .nav__links {
       width: 100%;
       justify-content: space-evenly;
+      a {
+        margin: 0;
+      }
       .btn {
         border-left: 0;
       }

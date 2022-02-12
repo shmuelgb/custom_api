@@ -62,6 +62,7 @@
   }
   .Nav img {
     display: none;
+    max-height: 40px;
   }
   .Nav .mobile-logo {
     display: initial;
@@ -72,6 +73,9 @@
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
+  }
+  .Nav .nav__links a {
+    margin: 0;
   }
   .Nav .nav__links .btn {
     border-left: 0;
