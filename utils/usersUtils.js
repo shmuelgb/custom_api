@@ -11,7 +11,7 @@ const addUser = async (req, res) => {
     const newUser = new User(user);
     const token = await newUser.generateAuthToken();
     const createdUser = await newUser.save();
-    res.send({ createdUser, token });
+    res.send({ user, token });
   } catch (e) {
     console.log(e);
     res.status(400).send({ message: e.message });

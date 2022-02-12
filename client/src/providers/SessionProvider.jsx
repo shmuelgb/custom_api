@@ -24,7 +24,7 @@ export const useUserCollectionsPro = () => {
   return [useContext(UserCollectionsPro), useContext(UserCollectionsProUpdate)];
 };
 
-const user = JSON.parse(localStorage.getItem("user"));
+const user = JSON.parse(localStorage.getItem("user") || null);
 
 export default function SessionProvider({ children }) {
   const [token, setToken] = useState();
