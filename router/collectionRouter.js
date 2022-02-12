@@ -8,7 +8,7 @@ router.post("/createCollection", auth, collectionUtils.createNewUserCollection);
 
 // Create new document
 router.post(
-  "/:collectionName/add",
+  "/:collectionName",
   auth,
   prepareCollection,
   collectionUtils.createNewDocument
@@ -16,7 +16,7 @@ router.post(
 
 // Update a hole document
 router.put(
-  "/:collectionName/updateHole/:docId",
+  "/:collectionName/:docId",
   auth,
   prepareCollection,
   collectionUtils.updateDoc
@@ -24,7 +24,7 @@ router.put(
 
 // Update document partially
 router.patch(
-  "/:collectionName/update/:docId",
+  "/:collectionName/:docId",
   auth,
   prepareCollection,
   collectionUtils.updateDoc
