@@ -25,6 +25,7 @@ function App() {
           <Route path="/about" exact component={About} />
           <Route path="/dashboard" exact component={Dashboard} />
           <Route path="/docs" exact component={Documentation} />
+          <Route path="/*" exact component={Home} />
         </Router>
       </SessionProvider>
     </div>
