@@ -31,8 +31,19 @@ Components:
     ***
 }
 
-- Dashboard{
-    
-}
-
 - userInfo{}
+
+- Dashboard{
+    createNewCollection{
+        new collection form
+    }
+    myCollections{
+        list of all collections,
+        collectionInfo{
+            see data,
+            routes info,
+            updateSchema,
+            delete collection
+        }
+    }
+}

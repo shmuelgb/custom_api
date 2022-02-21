@@ -17,8 +17,8 @@ export default function About() {
           This app was created as a Full-stack final project for the Applseeds
           Full-stack Bootcamp.
           <br /> The client-side of this app is written in React and Scss.
-          <br /> The server-side of this app is written in Node.js with Express.
-          <br /> The DB of this app is on MongoDB with Mongoose. <br />
+          <br /> The server-side is written in Node.js with Express.
+          <br /> The DB is on MongoDB with Mongoose. <br />
           More Features are yet to come! Please give me the benefits of your
           feedback, at shmuelgb.315@gmail.com, or contact me via{" "}
           <a
